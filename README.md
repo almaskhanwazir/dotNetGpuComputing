@@ -1,15 +1,22 @@
 # dotNetGpuComputing
 
-You want to perform a complex calculation and utilize GPU computing to speed up the process. Unfortunately, .NET Core does not have native support for GPU computing. However, you can use external libraries like ILGPU to achieve this.
 
-First, you need to install the ILGPU NuGet package. 
 
-Open a terminal or command prompt, navigate to your project folder and run:
+This solution contains 3 classes:
 
-dotnet add package ILGPU
+ManagedCudaSample - Uses the ManagedCuda library to execute CUDA kernels on the GPU.
+TensorFlowSample - Uses TensorFlow.NET to build and run TensorFlow models on the GPU.
+ILGPUSample - Uses the ILGPU library to compile C# code to GPU kernels.
+Steps:
 
-Please note that this example assumes you have an NVIDIA GPU and the appropriate CUDA Toolkit installed on your system. The ILGPU library also supports OpenCL accelerators, which can be used with other GPU brands.
+Install these NuGet packages:
+ManagedCudaSample.csproj:
 
-This example creates two large arrays with random values and calculates their element-wise sum using the GPU. The result is then copied back to the CPU memory and printed to the console.
+ManagedCuda
+TensorFlowSample.csproj:
 
-Keep in mind that GPU computing is most efficient when dealing with large amounts of data and parallelizable tasks. The performance gains might not be as significant for smaller data sets or operations that cannot be parallelized effectively.
+TensorFlow.NET
+ILGPUSample.csproj:
+
+ILGPU
+Write CUDA and ILGPU kernels in the respective projects:
